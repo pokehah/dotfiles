@@ -28,21 +28,28 @@ nnoremap <C-e> :NERDTree<CR>
 
 "*********************************************************************************************************************"
 "-------------------------------"
-"   Plugin Manager : Vim-Plug   "
+"   Plugin Manager : Vim-Plug   " ( https://github.com/junegunn/vim-plug )
 "-------------------------------"
-" https://github.com/junegunn/vim-plug
-" Needs an if block that can auto install vim-plug as well as if plugins aren't installed, get them.
 
-" Directory for plugins
+" Auto-Install vim-plug "
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" START Plugin Manager
+" Directory for plugins: ( ~/.local/share/nvim/nvPlugins )
 call plug#begin(stdpath('data') . '/nvPlugins')
 
 " Plugins
 " Airline - Status Bar at bottom
 Plug 'https://github.com/vim-airline/vim-airline'
-" netrc alternative - Filesystem browser
+" Nerdtree - netrc alternative / Filesystem browser
 Plug 'https://github.com/preservim/nerdtree'
 
-" Always last, install a patched NerdFont for this to work
+" Vim-Devicons - Use NerdFont glyphs for Airline, Nerdtree, Etc.
+" Always last, install a patched NerdFont for this plugin to work
 Plug 'https://github.com/ryanoasis/vim-devicons'
 
 call plug#end()
