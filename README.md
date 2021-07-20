@@ -2,6 +2,7 @@
 
 **Current Configs:**
   - Neovim
+  - tmux
   
 **To-Do:**
   - bspwm + sxhkd
