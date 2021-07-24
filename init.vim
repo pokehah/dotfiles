@@ -38,22 +38,25 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" START Plugin Manager
+"# START Plugin Manager #"
 " Directory for plugins: ( ~/.local/share/nvim/nvPlugins )
 call plug#begin(stdpath('data') . '/nvPlugins')
 
-" Plugins
+"" Plugins
 " Airline - Status Bar at bottom
 Plug 'https://github.com/vim-airline/vim-airline'
 " Nerdtree - netrc alternative / Filesystem browser
 Plug 'https://github.com/preservim/nerdtree'
+
+" BarBar - Add a tabline for buffers
+Plug 'https://github.com/romgrk/barbar.nvim'
 
 " Vim-Devicons - Use NerdFont glyphs for Airline, Nerdtree, Etc.
 " Always last, install a patched NerdFont for this plugin to work
 Plug 'https://github.com/ryanoasis/vim-devicons'
 
 call plug#end()
-" END Plugin Manager
+"# END Plugin Manager #"
 
 "**********************************************************************************************************************"
 "---------------------------"
