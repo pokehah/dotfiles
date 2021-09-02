@@ -24,7 +24,7 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 "--------------------------------"
 "   Neovim Remaps and Keybinds   "
 "--------------------------------"
-nnoremap <C-e> :NERDTree<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
 
 "*********************************************************************************************************************"
 "-------------------------------"
@@ -49,7 +49,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/preservim/nerdtree'
 
 " BarBar - Add a tabline for buffers
-Plug 'https://github.com/romgrk/barbar.nvim'
+"Plug 'https://github.com/romgrk/barbar.nvim'
 
 " Vim-Devicons - Use NerdFont glyphs for Airline, Nerdtree, Etc.
 " Always last, install a patched NerdFont for this plugin to work
