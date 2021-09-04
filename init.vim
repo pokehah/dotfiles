@@ -21,10 +21,23 @@ set linebreak
 " When Terminal opened, disable line numbering locally
 autocmd TermOpen * setlocal nonumber norelativenumber
 
+" Enable Mouse support in neovim normal, visual, and insert mode.
+" Really handy for switching buffers on sessions with files you're mostly just
+" reading, not editing.
+set mouse=nvi
+
+" Bind the leader-key to space
+let mapleader="\<space>"
+
 "--------------------------------"
 "   Neovim Remaps and Keybinds   "
 "--------------------------------"
 nnoremap <C-e> :NERDTreeToggle<CR>
+
+" Buffer-Related keybinds
+nnoremap <leader>T :enew<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>h :bprev<CR>
 
 "*********************************************************************************************************************"
 "-------------------------------"
@@ -45,6 +58,7 @@ call plug#begin(stdpath('data') . '/nvPlugins')
 "" Plugins
 " Airline - Status Bar at bottom
 Plug 'https://github.com/vim-airline/vim-airline'
+
 " Nerdtree - netrc alternative / Filesystem browser
 Plug 'https://github.com/preservim/nerdtree'
 
@@ -64,9 +78,12 @@ call plug#end()
 "---------------------------"
 
 "** Airline Config **"
-" Automatically populate g:airline_symbols
-" !! maybe not necessary? !!
+    " Automatically populate g:airline_symbols (might not be neccesary)
 let g:airline_powerline_fonts = 1
+    " Use Airline tabline
+let g:airline#extensions#tabline#enabled = 1
+    " Name tabs/buffers after the file
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "** Vim Devicons Config **"
 " System Font to Use
