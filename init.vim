@@ -33,11 +33,14 @@ let mapleader="\<space>"
 "   Neovim Remaps and Keybinds   "
 "--------------------------------"
 nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <leader>c :ALEToggle<CR>
 
 " Buffer-Related keybinds
 nnoremap <leader>T :enew<CR>
 nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
+nnoremap <leader><Left> :bprev<CR>
+nnoremap <leader><Right> :bnext<CR>
 
 "*********************************************************************************************************************"
 "-------------------------------"
@@ -68,6 +71,9 @@ Plug 'https://github.com/preservim/nerdtree'
 " Vim-Devicons - Use NerdFont glyphs for Airline, Nerdtree, Etc.
 " Always last, install a patched NerdFont for this plugin to work
 Plug 'https://github.com/ryanoasis/vim-devicons'
+
+" ALE - Asynchronous Linting
+Plug 'https://github.com/dense-analysis/ale'
 
 call plug#end()
 "# END Plugin Manager #"
