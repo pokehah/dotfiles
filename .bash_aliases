@@ -27,5 +27,8 @@ TODO() {
 }
 
 # Overwrite ls preferences
-alias ll="ls -lhF"
-alias la="ls -lAhF"
+alias ll="ls -lhF --group-directories-first"
+alias la="ls -lAhF --group-directories-first"
+
+# Get disk usage of current directories contents, sort sizes High->Low
+alias duh="du ./ -h --max-depth=1 | sort -hr"
