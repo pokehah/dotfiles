@@ -8,17 +8,17 @@
 alias cppcompile="clang++ -std=c++17 -W -Wall -Wextra -Wpedantic"
 
 RunTheCode() {
-	# Get code file's name
+    # Get code file's name
     [[ "$1" == "" ]] && filename="a.out" || filename="$1"
 
-	if [ -f ./"${filename}" ]; then
-		clear
-		./"${filename}"
-		echo -e "\nFinished executing \"${filename}\"."
-		echo -n "Press any key to continue..."; read -rn 1; echo;
-	else
-		echo "File \"${filename}\" does not exist in current directory."
-	fi
+    if [ -f ./"${filename}" ]; then
+        clear
+        ./"${filename}"
+        echo -e "\nFinished executing \"${filename}\"."
+        echo -n "Press any key to continue..."; read -rn 1; echo;
+    else
+        echo "File \"${filename}\" does not exist in current directory."
+    fi
 }
 
 #TODO_PATH="${HOME}/Documents/ToDo"
