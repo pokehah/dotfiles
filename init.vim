@@ -35,6 +35,9 @@ let mapleader="\<space>"
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <leader>c :ALEToggle<CR>
 
+" Correct indentation in current file
+nnoremap <F10> gg=G
+
 " Buffer-Related keybinds
 nnoremap <leader>T :enew<CR>
 nnoremap <leader>l :bnext<CR>
