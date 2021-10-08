@@ -27,6 +27,7 @@ TODO() {
 }
 
 # Overwrite ls preferences
+alias l="ls -lhF --group-directories-first"
 alias ll="ls -lhF --group-directories-first"
 alias la="ls -lAhF --group-directories-first"
 
