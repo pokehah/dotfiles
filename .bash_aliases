@@ -34,6 +34,8 @@ alias la="ls -lAhF --group-directories-first"
 # Get disk usage of current directories contents, sort sizes High->Low
 alias duh="du ./ -h --max-depth=1 | sort -hr"
 
+# turns out this works with an alias too, I just needed to use " instead of '.
+# alias could be better as well since you can see what its runs just by typing alias cmd and unalias it if desired
 # Interesting way to allow passing different options to piped aliases
 # For example, if you wanted to list files with du using '-a'
 # Better than function parameters in a way since you have to explicity name when using it, less obscurity
@@ -41,3 +43,6 @@ alias duh="du ./ -h --max-depth=1 | sort -hr"
 #    # USAGE EXAMPLE: extra_options_du='-a' duh
 #    du ./ -h --max-depth=1 ${extra_options_du} | sort -hr ${extra_options_sort}
 #}
+
+# Print nicely formatted date + time.
+alias fdate='date +"%a, %d %B %Y, %I:%M"'
