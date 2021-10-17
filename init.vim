@@ -15,15 +15,17 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" Fold automatically according to language syntax
+" set foldmethod=syntax
+
 " Break lines on words instead of letters
 set linebreak
 
 " When Terminal opened, disable line numbering locally
 autocmd TermOpen * setlocal nonumber norelativenumber
 
-" Enable Mouse support in neovim normal, visual, and insert mode.
-" Really handy for switching buffers on sessions with files you're mostly just
-" reading, not editing.
+" Enable Mouse support in normal/visual/insert mode.
+" Useful for switching buffers when viewing, not editing.
 set mouse=nvi
 
 " Bind the leader-key to space
