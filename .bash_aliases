@@ -26,6 +26,10 @@ TODO() {
     tmux -c "${HOME}/Scripts/OpenToDos.sh"  # Run OpenToDos.sh in tmux
 }
 
+# Github SSH auto-login #
+#exec $(ssh-agent -s)  # Start ssh-agent
+## run ssh-add manually and login to Github SSH key.
+
 # Overwrite ls preferences
 alias l="ls -lhF --group-directories-first"
 alias ll="ls -lhF --group-directories-first"
@@ -33,6 +37,9 @@ alias la="ls -lAhF --group-directories-first"
 
 # Get disk usage of current directories contents, sort sizes High->Low
 alias duh="du ./ -h --max-depth=1 | sort -hr"
+
+# Pretty print mount output. Moreso for an example of using column command
+#alias pmount="mount | column -t"
 
 # turns out this works with an alias too, I just needed to use " instead of '.
 # alias could be better as well since you can see what its runs just by typing alias cmd and unalias it if desired
