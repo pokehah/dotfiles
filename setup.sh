@@ -4,10 +4,15 @@
 ConfigPath="$(pwd)"
 
 mkdir -vp "${HOME}"/.config/nvim
-ln -s "${ConfigPath}"/init.vim "${HOME}"/.config/nvim/init.vim
+if [[ ! -L "${HOME}/.config/nvim/init.vim" ]]; then
+    ln -vs "${ConfigPath}"/init.vim "${HOME}"/.config/nvim/init.vim
+fi
 
 mkdir -vp "${HOME}"/.config/tmux
-ln -vs "${ConfigPath}"/tmux.conf "${HOME}"/.config/tmux/tmux.conf
+if [[ ! -L "${HOME}/.config/tmux/tmux.conf" ]]; then
+    ln -vs "${ConfigPath}"/tmux.conf "${HOME}"/.config/tmux/tmux.conf
+fi
+#else if [[ -F path ]] then "oh, you have the file. how do you want to solve this?"
 
 if [[ ! -f "${HOME}/.bash_aliases" ]]; then
     ln -vs "${ConfigPath}"/.bash_aliases "${HOME}"/.bash_aliases
