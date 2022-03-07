@@ -38,6 +38,9 @@ alias la="ls -lAhF --group-directories-first"
 # Get disk usage of current directories contents, sort sizes High->Low
 alias duh="du ./ -h --max-depth=1 | sort -hr"
 
+# I hate typing xdg-open
+alias opendir="xdg-open ./"
+
 # Pretty print mount output. Moreso for an example of using column command
 #alias pmount="mount | column -t"
 
