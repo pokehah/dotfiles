@@ -21,11 +21,6 @@ RunTheCode() {
     fi
 }
 
-#TODO_PATH="${HOME}/Documents/ToDo"
-TODO() {
-    tmux -c "${HOME}/Scripts/OpenToDos.sh"  # Run OpenToDos.sh in tmux
-}
-
 # Github SSH auto-login #
 #exec $(ssh-agent -s)  # Start ssh-agent
 ## run ssh-add manually and login to Github SSH key.
