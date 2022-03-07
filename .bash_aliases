@@ -2,6 +2,9 @@
 # Path: ~/.bash_aliases
 # By: Joshua S. || Pokehah
 
+export VISUAL="$(which nvim)"
+export EDITOR="$VISUAL"
+
     # C++ Compililation aliases
     # -O0 - no optimization, -O3/4 - Use optimization for faster executable.
 #alias cppcompile="g++ -W -Wall -Wextra -Wpedantic"
