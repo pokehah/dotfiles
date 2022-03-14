@@ -2,6 +2,10 @@
 # This script links the dotfiles to the assumed appropriate location.
 
 ConfigPath="$(pwd)"
+if [[ ! -f "$ConfigPath/$(basename "$0")" ]]; then
+    echo "Exiting. Run the script from the directory it and all the configs are in."
+    exit
+fi
 
 mkdir -vp "${HOME}"/.config/nvim
 if [[ ! -L "${HOME}/.config/nvim/init.vim" ]]; then
