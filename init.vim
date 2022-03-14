@@ -96,6 +96,11 @@ let g:airline#extensions#tabline#enabled = 1
     " Name tabs/buffers after the file
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+"** ALE Config **"
+" Directly specify c++17 standard until I figure out cmake and its json
+" solution
+let g:ale_cpp_cc_options = '-std=c++17 -Wall'
+
 "** Vim Devicons Config **"
 " System Font to Use
 set guifont=Cascadia\ Code\ PL
