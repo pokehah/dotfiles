@@ -97,10 +97,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 "** ALE Config **"
-" Directly specify c++17 standard until I figure out cmake and its json
-" solution
+    " ALE completion
+let g:ale_completion_enabled = 1
+    " Specify c++17 standard for linters + LSP
 let g:ale_cpp_cc_options = '-std=c++17 -Wall'
-
-"** Vim Devicons Config **"
-" System Font to Use
-set guifont=Cascadia\ Code\ PL
+    " Only use listed linters
+let g:ale_linters = { 'cpp': ['clang++', 'clangd'] }
+    " Report problems with...
+    " VirtualText (at the end of the line by default)
+let g:ale_virtualtext_cursor = 1
