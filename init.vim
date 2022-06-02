@@ -36,6 +36,7 @@ let mapleader="\<space>"
 "--------------------------------"
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <leader>c :ALEToggle<CR>
+nnoremap <leader>H :ALEHover<CR>
 
 " Correct indentation in current file
 nnoremap <F10> gg=G
@@ -95,12 +96,15 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
     " Name tabs/buffers after the file
 let g:airline#extensions#tabline#fnamemod = ':t'
+    " Display ALE messages with Airline
+let g:airline#extensions#ale#enabled = 1
 
 "** ALE Config **"
     " ALE completion
 let g:ale_completion_enabled = 1
     " Specify c++17 standard for linters + LSP
 let g:ale_cpp_cc_options = '-std=c++17 -Wall'
+let g:ale_cpp_clang_options = '-std=c++17 -Wall -x c++'
     " Only use listed linters
 let g:ale_linters = { 'cpp': ['clang++', 'clangd'] }
     " Report problems with...
