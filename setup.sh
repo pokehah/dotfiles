@@ -7,6 +7,13 @@ if [[ ! -f "$ConfigPath/$(basename "$0")" ]]; then
     exit
 fi
 
+mkdir -vp "${HOME}"/.config/mpd
+if [[ ! -L "${HOME}/.config/mpd/mpd.conf" ]]; then
+    ln -vs "${ConfigPath}"/mpd.conf "${HOME}"/.config/mpd/mpd.conf
+else
+    echo "\"${HOME}/.config/mpd/mpd.conf\" already exists, cannot link."
+fi
+
 mkdir -vp "${HOME}"/.config/nvim
 if [[ ! -L "${HOME}/.config/nvim/init.vim" ]]; then
     ln -vs "${ConfigPath}"/init.vim "${HOME}"/.config/nvim/init.vim
