@@ -14,6 +14,14 @@ else
     echo "\"${HOME}/.config/mpd/mpd.conf\" already exists, cannot link."
 fi
 
+mkdir -vp "${HOME}"/.config/ncmpcpp
+if [[ ! -L "${HOME}/.config/ncmpcpp/config" ]]; then
+    ln -vs "${ConfigPath}"/ncmpcpp.conf "${HOME}"/.config/ncmpcpp/config
+else
+    echo "\"${HOME}/.config/ncmpcpp/config\" already exists, cannot link."
+fi
+
+
 mkdir -vp "${HOME}"/.config/nvim
 if [[ ! -L "${HOME}/.config/nvim/init.vim" ]]; then
     ln -vs "${ConfigPath}"/init.vim "${HOME}"/.config/nvim/init.vim
