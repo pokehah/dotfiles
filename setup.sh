@@ -38,7 +38,7 @@ fi
 #else if [[ -F path ]] then "oh, you have the file. how do you want to solve this?"
 
 if [[ ! -f "${HOME}/.bash_aliases" ]]; then
-    ln -vs "${ConfigPath}"/.bash_aliases "${HOME}"/.bash_aliases
+    ln -vs "${ConfigPath}"/bash_aliases "${HOME}"/.bash_aliases
 else
     echo "\"${HOME}/.bash_aliases\" already exists, cannot link."
     # echo "Would you like to prepend existing config with this one?"
