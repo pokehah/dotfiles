@@ -46,12 +46,12 @@ else
 fi
 
 if [[ -f "${HOME}/.zshrc" ]]; then
-    if ! grep 'source "${HOME}/Configs/.bash_aliases"' "${HOME}"/.zshrc > /dev/null; then
+    if ! grep 'source "${HOME}/Configs/bash_aliases"' "${HOME}"/.zshrc > /dev/null; then
         inp='n'
-        echo "Source \"${ConfigPath}/.bash_aliases\" in \"${HOME}/.zshrc\"?"
+        echo "Source \"${ConfigPath}/bash_aliases\" in \"${HOME}/.zshrc\"?"
         read -r -n 1 -p "(Y/N) >> " inp; echo
         if [[ "${inp}" == [yY] ]]; then
-            echo -e "\nsource \"\${HOME}/Configs/.bash_aliases\"" >> "${HOME}"/.zshrc
+            echo -e "\nsource \"\${HOME}/Configs/bash_aliases\"" >> "${HOME}"/.zshrc
             tail "${HOME}"/.zshrc
         fi
     fi
