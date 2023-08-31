@@ -106,7 +106,7 @@ let g:ale_completion_enabled = 1
 let g:ale_cpp_cc_options = '-std=c++17 -Wall'
 let g:ale_cpp_clang_options = '-std=c++17 -Wall -x c++'
     " Only use listed linters
-let g:ale_linters = { 'cpp': ['clang++', 'clangd'] }
+let g:ale_linters = { 'cpp': ['clang++', 'clangd'], 'asm': ['yasm'] }
     " Report problems with...
     " VirtualText (at the end of the line by default)
 let g:ale_virtualtext_cursor = 1

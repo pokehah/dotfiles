@@ -38,6 +38,13 @@ alias la="ls -lAhF --group-directories-first"
 duh() {
     du "./${1}" -h --max-depth=1 | sort -hr
 }
+duhf() {
+    du "./${1}" -ha --max-depth=1 | sort -hr
+}
+
+# yt-dlp | YouTube downloader aliases
+# Need one for albums which includes the index i.e. "01_title.ext"
+alias ytdlmusic='yt-dlp -x --audio-quality "best" --audio-format "opus" -o "%(title)s.%(ext)s"'
 
 # I hate typing xdg-open
 alias opendir="xdg-open ./"
