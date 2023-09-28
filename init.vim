@@ -10,6 +10,9 @@
 set number
 set relativenumber
 
+" Let highlighter do its work
+set termguicolors
+
 " Convert Tabs to 4 Spaces
 set expandtab
 set tabstop=4
@@ -81,8 +84,17 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 " ALE - Asynchronous Linting
 Plug 'https://github.com/dense-analysis/ale'
 
+" Comment.nvim - Code Commenting plugin
+Plug 'numToStr/Comment.nvim'
+
+" nvim-colorizer - Color hex codes (makes theming easier)
+Plug 'norcalli/nvim-colorizer.lua'
+
 call plug#end()
 "# END Plugin Manager #"
+
+lua require('Comment').setup()
+lua require('colorizer').setup()
 
 "**********************************************************************************************************************"
 "---------------------------"
