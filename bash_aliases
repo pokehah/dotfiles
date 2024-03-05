@@ -5,6 +5,13 @@
 export VISUAL="$(which nvim)"
 export EDITOR="$VISUAL"
 
+# temporary path for Thinkpad
+# (i believe this is for pistol which is for lf)
+export PATH="/home/pokehah/.local/bin:/home/pokehah/go/bin:${PATH}"
+
+# find my python script path and export PYTHONPATH
+export PYTHONPATH="${PYTHONPATH}:$(find /home -type d -path "*/myCode/python/scripts" -exec echo -n "{}" \; 2>>/dev/null)"
+
     # C++ Compililation aliases
     # -O0 - no optimization, -O3/4 - Use optimization for faster executable.
 #alias cppcompile="g++ -W -Wall -Wextra -Wpedantic"
