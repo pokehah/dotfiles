@@ -56,3 +56,11 @@ if [[ -f "${HOME}/.zshrc" ]]; then
         fi
     fi
 fi
+
+if [[ ! -d "${HOME}/.config/kitty" ]]; then
+    ln -vs "${ConfigPath}"/kitty "${HOME}"/.config/kitty
+else
+    echo "\"${HOME}/.config/kitty\" already exists, cannot link."
+fi
+
+# The cannot link string could be a var

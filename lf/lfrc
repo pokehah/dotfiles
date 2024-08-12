@@ -1,0 +1,24 @@
+# Quickly Edit lf config #
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+map C edit-config
+# END edit_config #
+
+# Open a shell with 'S', Ranger style #
+cmd shell-into ${{
+    $SHELL
+}}
+
+map S shell-into
+# END shell-into #
+
+# Open file in default editor #
+map ee $$EDITOR "$f"
+
+# Set up image preview + pistol preview fallback
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
