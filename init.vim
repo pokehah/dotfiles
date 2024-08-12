@@ -90,6 +90,9 @@ Plug 'numToStr/Comment.nvim'
 " nvim-colorizer - Color hex codes (makes theming easier)
 Plug 'norcalli/nvim-colorizer.lua'
 
+" catppuccin - Theme plugin.
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 call plug#end()
 "# END Plugin Manager #"
 
@@ -122,3 +125,7 @@ let g:ale_linters = { 'cpp': ['clang++', 'clangd'], 'asm': ['yasm'] }
     " Report problems with...
     " VirtualText (at the end of the line by default)
 let g:ale_virtualtext_cursor = 1
+
+
+" Colorscheme (theme)
+colorscheme catppuccin
