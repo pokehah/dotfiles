@@ -88,7 +88,9 @@ Plug 'https://github.com/dense-analysis/ale'
 Plug 'numToStr/Comment.nvim'
 
 " nvim-colorizer - Color hex codes (makes theming easier)
-Plug 'norcalli/nvim-colorizer.lua'
+" --- No longer maintained ---
+" Plug 'norcalli/nvim-colorizer.lua'
+Plug 'catgoose/nvim-colorizer.lua'
 
 " catppuccin - Theme plugin.
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
