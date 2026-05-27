@@ -1,0 +1,4 @@
+# ~/.bashrc
+
+. "${HOME}/pkh-stuff/dotfiles/mybashrc"
+. "${HOME}/pkh-stuff/dotfiles/bash_aliases"

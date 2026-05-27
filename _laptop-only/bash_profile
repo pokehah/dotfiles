@@ -1,0 +1,16 @@
+#
+# ~/.bash_profile
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# Setup then run Niri
+if [ -z "${DISPLAY}" ] && [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
+	export SHELL=/usr/bin/zsh
+	export PATH=$PATH:$HOME/.local/bin
+	export EDITOR=nvim
+	export PAGER=less
+	export MANPAGER='nvim +Man!'
+	exec niri-session -l
+fi
