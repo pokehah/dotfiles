@@ -1,0 +1,25 @@
+#**   Shell Configuration   **#
+# For use with Bash or ZSH (ZSH primarily)
+# Path: 
+# By: Joshua S. || Pokehah
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Disable bell/error sound for VT
+if [[ "$(tty)" == "/dev/tty*" ]]; then
+	setterm -blength 0
+fi
+
+export VISUAL="$(which nvim)"
+export EDITOR="$VISUAL"
+
+# Add location of pistol to path for lf
+export PATH="/home/pokehah/.local/bin:/home/pokehah/go/bin:${PATH}"
+
+# find my python script path and export PYTHONPATH
+export PYTHONPATH="${PYTHONPATH}:$(find /home -type d -path "*/myCode/python/scripts" -exec echo -n "{}" \; 2>>/dev/null)"
+
+# Github SSH auto-login #
+#exec $(ssh-agent -s)  # Start ssh-agent
+## run ssh-add manually and login to Github SSH key.

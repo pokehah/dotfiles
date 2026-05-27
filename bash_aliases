@@ -2,21 +2,29 @@
 # Path: ~/.bash_aliases
 # By: Joshua S. || Pokehah
 
-export VISUAL="$(which nvim)"
-export EDITOR="$VISUAL"
+#--------------------------#
+#         Aliases          #
+#--------------------------#
+alias ls='ls -hF --color=auto --group-directories-first'
+alias ll='ls -lhF --color=auto --group-directories-first'
+alias la='ls -lAhF --color=auto --group-directories-first'
 
-# temporary path for Thinkpad
-# (i believe this is for pistol which is for lf)
-export PATH="/home/pokehah/.local/bin:/home/pokehah/go/bin:${PATH}"
+alias grep='grep --color=auto'
 
-# find my python script path and export PYTHONPATH
-export PYTHONPATH="${PYTHONPATH}:$(find /home -type d -path "*/myCode/python/scripts" -exec echo -n "{}" \; 2>>/dev/null)"
+# Print nicely formatted date + time.
+alias fdate='date +"%a, %d %B %Y, %I:%M"'
 
     # C++ Compililation aliases
     # -O0 - no optimization, -O3/4 - Use optimization for faster executable.
 #alias cppcompile="g++ -W -Wall -Wextra -Wpedantic"
 alias cppcompile="clang++ -std=c++17 -W -Wall -Wextra -Wpedantic"
 
+# yt-dlp | YouTube downloader aliases
+alias ytdlmusic='yt-dlp -x --audio-quality "best" --audio-format "opus" -o "%(title)s.%(ext)s"'
+
+#-------------------------#
+#        Functions        #
+#-------------------------#
 RunTheCode() {
     # Get code file's name
     [[ "$1" == "" ]] && filename="a.out" || filename="$1"
@@ -31,43 +39,22 @@ RunTheCode() {
     fi
 }
 
-# Github SSH auto-login #
-#exec $(ssh-agent -s)  # Start ssh-agent
-## run ssh-add manually and login to Github SSH key.
-
-# Overwrite ls preferences
-alias l="ls -lhF --group-directories-first"
-alias ll="ls -lhF --group-directories-first"
-alias la="ls -lAhF --group-directories-first"
-
-# Get disk usage of current directories contents, sort sizes High->Low
-#alias duh="du ./ -h --max-depth=1 | sort -hr"
+# Get disk usage of contents of directory, sort sizes High->Low
+### USAGE EXAMPLE: extra_options_du='-a' duh
 duh() {
-    du "./${1}" -h --max-depth=1 | sort -hr
+    du "./${1}" -h --max-depth=1 "${extra_options_du}" | sort -hr "${extra_options_sort}"
 }
 duhf() {
-    du "./${1}" -ha --max-depth=1 | sort -hr
+    du "./${1}" -ha --max-depth=1 "${extra_options_du}" | sort -hr "${extra_options_sort}"
 }
 
-# yt-dlp | YouTube downloader aliases
-# Need one for albums which includes the index i.e. "01_title.ext"
-alias ytdlmusic='yt-dlp -x --audio-quality "best" --audio-format "opus" -o "%(title)s.%(ext)s"'
+# Yazi with directory changing
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
-# I hate typing xdg-open
-alias opendir="xdg-open ./"
 
-# Pretty print mount output. Moreso for an example of using column command
-#alias pmount="mount | column -t"
-
-# turns out this works with an alias too, I just needed to use " instead of '.
-# alias could be better as well since you can see what its runs just by typing alias cmd and unalias it if desired
-# Interesting way to allow passing different options to piped aliases
-# For example, if you wanted to list files with du using '-a'
-# Better than function parameters in a way since you have to explicity name when using it, less obscurity
-#duh() {
-#    # USAGE EXAMPLE: extra_options_du='-a' duh
-#    du ./ -h --max-depth=1 ${extra_options_du} | sort -hr ${extra_options_sort}
-#}
-
-# Print nicely formatted date + time.
-alias fdate='date +"%a, %d %B %Y, %I:%M"'
