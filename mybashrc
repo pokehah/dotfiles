@@ -21,5 +21,14 @@ export PATH="/home/pokehah/.local/bin:/home/pokehah/go/bin:${PATH}"
 export PYTHONPATH="${PYTHONPATH}:$(find /home -type d -path "*/myCode/python/scripts" -exec echo -n "{}" \; 2>>/dev/null)"
 
 # Github SSH auto-login #
-#exec $(ssh-agent -s)  # Start ssh-agent
+exec $(ssh-agent -s)  # Start ssh-agent
 ## run ssh-add manually and login to Github SSH key.
+
+## Shell History configuration ##
+# Ignore commands prefixed with a space + commands run multiple times in succession
+HISTCONTROL=ignorespace:ignoredups
+# Ignore specified commands
+# ? acts as individual wildcard. ?:?? ignores "l", "ls", but not "ll /etc"
+HISTIGNORE="history:clear:exit:?:??"
+HISTTIMEFORMAT="%Y-%m-%d %T "
+
