@@ -48,6 +48,18 @@ duhf() {
     du "./${1}" -ha --max-depth=1 "${extra_options_du}" | sort -hr "${extra_options_sort}"
 }
 
+# Helper function for when I forget how to setup Github SSH
+GithubSSH() {
+    eval $(ssh-agent -s)
+    if [[ -f ~/.ssh/thinkpadKey_ed25519 ]]; then
+        ssh-add ~/.ssh/thinkpadKey_ed25519
+    elif [[ -f ~/.ssh/desktopKey_ed25519 ]]; then
+        ssh-add ~/.ssh/desktopKey_ed25519
+    else
+        echo "Can't find desktop or Thinkpad key. It is either not present or named incorrectly."
+    fi
+}
+
 # Yazi with directory changing
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
