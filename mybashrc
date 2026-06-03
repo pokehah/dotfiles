@@ -20,10 +20,6 @@ export PATH="/home/pokehah/.local/bin:/home/pokehah/go/bin:${PATH}"
 # find my python script path and export PYTHONPATH
 export PYTHONPATH="${PYTHONPATH}:$(find /home -type d -path "*/myCode/python/scripts" -exec echo -n "{}" \; 2>>/dev/null)"
 
-# Github SSH auto-login #
-exec $(ssh-agent -s)  # Start ssh-agent
-## run ssh-add manually and login to Github SSH key.
-
 ## Shell History configuration ##
 # Ignore commands prefixed with a space + commands run multiple times in succession
 HISTCONTROL=ignorespace:ignoredups
